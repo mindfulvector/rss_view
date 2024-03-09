@@ -27,8 +27,11 @@ foreach(URLS as $idx => $url) {
         $cache_dt = filemtime($cachename);
     } else {
         require_once "rsslib/rsslib.php";
-        $cache = RSS_Display($url, 'Meditation + Talk', 15, false, true);
+	$cache = RSS_Display($url, 'Meditation + Talk', 15, false, true);
+	if(!$cache) { exit('No cache created from RSS feed '.$url.'; script aborts'); }
         file_put_contents($cachename, $cache);
+        $check_cache = file_get_contents($cachename);
+	if($check_cache != $cache) { exit('Cache could not be written correctly for RSS feed '.$url.'; script aborts'); }
         $refreshed = true;
     }
 
@@ -37,7 +40,7 @@ foreach(URLS as $idx => $url) {
 }
 
 if($refreshed) {
-    header('Location: ?');
+    header('Location: '.WEB_URL);
 }
 ?>
 <!DOCTYPE html>

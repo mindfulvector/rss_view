@@ -1,5 +1,7 @@
 <?php
 
+const WEB_URL = '/tools/rss_view/?';
+
 // Each entry in this array should be a full URL to an RSS feed.
 const URLS = [
 	"https://rickhanson.com/feed/"
