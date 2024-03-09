@@ -1,0 +1,12 @@
+version: "3"
+services:
+  web:
+    build: .
+    volumes:
+      - ./:/app
+    environment:
+      - PHP_XDEBUG_CLIENT_PORT=1998
+      - PORT=4444
+      - WEB_URL=http://localhost:4444
+    ports:
+      - 4444:80
