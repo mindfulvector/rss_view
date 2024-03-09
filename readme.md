@@ -8,3 +8,6 @@ Just change the list of URLs in the config.php file to customize what URLs are f
 
 The page's most recent result is cached for 1 hour under the cache/ directory as a simple HTML file. You can link directly to this file if you don't want to run the risk of attempting to refresh an unstable RSS feed.
 
+## Screenshot
+
+<img src="rss_view.png" />
